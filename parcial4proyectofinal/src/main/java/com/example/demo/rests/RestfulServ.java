@@ -8,6 +8,7 @@ import com.example.demo.models.Clientes;
 import com.example.demo.models.Empleados;
 import com.example.demo.models.Pagos;
 import com.example.demo.models.Sucursales;
+import com.example.demo.models.TipoPago;
 
 @Service
 public class RestfulServ {
@@ -31,6 +32,9 @@ public class RestfulServ {
 	}
 	public ArrayList<Clientes> getAllClientes() {
 		return new ArrayList<Clientes>(Arrays.asList(restService.getForObject(apiUrl+"/clienteController/getCliente", Clientes[].class)));
+	}
+	public ArrayList<TipoPago> getAllTiposPagos() {
+		return new ArrayList<TipoPago>(Arrays.asList(restService.getForObject(apiUrl+"/tipo_pagoController/getTipoPago", TipoPago[].class)));
 	}
 	
 	

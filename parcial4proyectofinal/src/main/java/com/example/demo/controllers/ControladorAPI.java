@@ -20,6 +20,7 @@ public class ControladorAPI {
 		model.addAttribute("listaTodosPagos",rest.getAllPagos());
 		model.addAttribute("listaTodasSucursales",rest.getAllSucursales());
 		model.addAttribute("listaTodosClientes",rest.getAllClientes());
+		model.addAttribute("listaTipodePagos",rest.getAllTiposPagos());
 		return "index";
 	}
 }
