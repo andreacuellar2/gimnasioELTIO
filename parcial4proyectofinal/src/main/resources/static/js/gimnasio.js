@@ -69,9 +69,7 @@ function mostrarTipoPago(idTipo) {
 }
 function agregarUser() {
 
-	traerClientes($("#name").val(),
-			$('input:radio[name=gender]:checked').val(), $(
-					"#selectSucursalCliente").val());
+	traerClientes($("#name").val(),$('input:radio[name=gender]:checked').val(), $("#selectSucursalCliente").val());
 }
 function traerClientes(nombre_cliente, genero_cliente, id_sucursalcliente) {
 	// Para traer clientes
@@ -87,12 +85,10 @@ function traerClientes(nombre_cliente, genero_cliente, id_sucursalcliente) {
 						for (var i = 0; i < response.length; i++) {
 							ultimoCliente = parseInt(response[i].id_cliente);
 						}
-						realizarPost((ultimoCliente + 1), nombre_cliente,
-								genero_cliente, id_sucursalcliente);
+						realizarPost((ultimoCliente + 1), nombre_cliente,genero_cliente, id_sucursalcliente);
 					});
 }
-function realizarPost(id_cliente, nombre_cliente, genero_cliente,
-		id_sucursalcliente) {
+function realizarPost(id_cliente, nombre_cliente, genero_cliente,id_sucursalcliente) {
 
 	var parametros = {
 		"id_cliente" : id_cliente,
@@ -115,10 +111,9 @@ function realizarPost(id_cliente, nombre_cliente, genero_cliente,
 
 }
 function agregarPago() {
-
-	traerPagos($("#clientesPago").val(), $("#tipoPagoPago").val(), $("#fecha")
-			.val());
+	traerPagos($("#clientesPago").val(), $("#tipoPagoPago").val(), $("#fecha").val());
 }
+
 function traerPagos(idcliente, idTipoPago, fecha) {
 
 	// Para traer pagos
@@ -133,10 +128,10 @@ function traerPagos(idcliente, idTipoPago, fecha) {
 				for (var i = 0; i < response.length; i++) {
 					ultimoPago = parseInt(response[i].idpago);
 				}
-				realizarPost((ultimoPago + 1), idcliente, idTipoPago, fecha);
+				realizarPostPago((ultimoPago + 1), idcliente, idTipoPago, fecha);
 			});
 }
-function realizarPost(idpago, idcliente, idTipoPago, fecha) {
+function realizarPostPago(idpago, idcliente, idTipoPago, fecha) {
 
 	var parametros = {
 		"idpago" : idpago,
@@ -150,8 +145,6 @@ function realizarPost(idpago, idcliente, idTipoPago, fecha) {
 	// POST del nuevo cliente
 	$
 			.ajax({
-				// headers: {'X-Auth-Token':
-				// 'df40f3f9eb674bc5acf47bf88f22345c'},
 				data : parametros,
 				url : 'http://localhost/parcialFPI_4_Servidor/index.php/pagoController/postPago',
 				dataType : 'json',
