@@ -249,7 +249,8 @@
 	<div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
 		<div class="portfolio-modal-dialog bg-white">
 			<a class="close-button d-none d-md-block portfolio-modal-dismiss"
-				href="#"> <i class="fa fa-3x fa-times"></i>
+				href="#"> 
+				<i class="fa fa-3x fa-times"></i>
 			</a>
 			<div class="container text-center">
 				<div class="row">
@@ -258,15 +259,12 @@
 						<hr class="star-dark mb-5" />
 						<img class="img-fluid mb-5" src="img/portfolio/cake.png" alt="" />
 						<p class="mb-5">Pagos de nuestros clientes</p>
-						<button type="submit" class="btn btn-primary btn-xl"
-							id="btnagregar" onclick="mostrarPagosdiv()">Ver Pagos</button>
-						<button type="submit" class="btn btn-primary btn-xl"
-							id="btneliminar" onclick="mostrarAgregarPago()">Agregar Pago</button>
-
+						<h1 class="text-uppercase mb-0">VER PAGOS POR CLIENTE</h1>
 						<div class="container" id="contenedorPagosPorCliente">
 							<div class="control-group">
 								<div
 									class="form-group floating-label-form-group controls mb-0 pb-2">
+									<br/><h6 class="text-danger">*Elija un cliente*</h6><br/>
 									<select class="form-control" id="selectPagos"
 										onchange="mostrarPagos()">
 										<option th:each="clientes : ${listaTodosClientes}"
@@ -275,11 +273,15 @@
 									</select>
 								</div>
 							</div>
+							<br/><br/>
+							<h4 class="text-muted">Aquí se muestran las fechas de los pagos del cliente</h4>
+							<br/><br/>
 							<ul id="listaPagos">
 							</ul>
 						</div>
 
 						<div class="container" id="contenedorAgregarPago">
+						<h1 class="text-uppercase mb-0">AGREGAR PAGO</h1>
 							<div class="control-group">
 								<div
 									class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -287,10 +289,12 @@
 										<option th:each="clientes : ${listaTodosClientes}"
 											th:text="${clientes.nombre_cliente}"
 											th:value="${clientes.id_cliente}"></option>
-									</select> <select class="form-control" id="tipoPagoPago">
+									</select>
+									<br/><br/> 
+									<select class="form-control" id="tipoPagoPago">
 										<option th:each="tipoPago : ${listaTipodePagos}"
 											th:text="${tipoPago.nombre_tipopago}"
-											th:value="${tipoPago.idtipo_pago}"></option>
+											th:value="${tipoPago.idtipo_pago}"></option><br/>
 									</select>
 									<div class="control-group">
 										<div
@@ -300,12 +304,17 @@
 												data-validation-required-message="Por favor ingresar fecha" />
 											<p class="help-block text-danger"></p>
 										</div>
-									</div>
-									<button type="button" id="agregarPago" class="btn btn-default"
-										onclick="agregarPago()"></button>
+									</div><br/><br/>
+									<button type="button" id="agregarPago" class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
+										onclick="agregarPago()">Agregar Pago</button>
 								</div>
 							</div>
-						</div>
+						</div><br/><br/>
+						<a
+							class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
+							href="#"> <i class="fa fa-close"></i> Cerrar
+						</a>	
+					
 					</div>
 				</div>
 			</div>
@@ -326,12 +335,9 @@
 						<img class="img-fluid mb-5" src="img/portfolio/circus.png" alt="" />
 						<p class="mb-5">Puedes agregar, eliminar o modificar la
 							información de nuestros clientes</p>
-						<button type="submit" class="btn btn-primary btn-xl"
-							id="btnagregar" onclick="mostrarAgregar()">Agregar</button>
-						<button type="submit" class="btn btn-primary btn-xl"
-							id="btneliminar" onclick="mostrarEliminar()">Eliminar</button>
-						<br />
-						<br />
+						<h1 class="text-uppercase mb-0">AGREGAR CLIENTE</h1>
+						<br/>
+						<br/>
 						<!--Para formulario de agregar-->
 						<div class="container" id="contenedorAgregar">
 							<div class="control-group">
@@ -342,7 +348,7 @@
 										data-validation-required-message="Por favor ingresar nombre" />
 									<p class="help-block text-danger"></p>
 								</div>
-							</div>
+							</div><br/><br/>
 							<div class="control-group">
 								<div
 									class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -350,7 +356,7 @@
 										<input class="form-control" type="radio" name="gender"
 											value="M" /> Masculino <input class="form-control"
 											type="radio" name="gender" value="F" /> Femenino
-									</form>
+									</form><br/><br/>
 									<select class="form-control" id="selectSucursalCliente">
 										<option th:each="sucursales : ${listaTodasSucursales}"
 											th:text="${sucursales.nombreSucursal}"
@@ -359,15 +365,16 @@
 									<p class="help-block text-danger"></p>
 								</div>
 							</div>
-							<br />
-							<button type="button" id="agregarUser" class="btn btn-default"
-								onclick="agregarUser()"></button>
+							<br /><br/>
+							<button type="button" id="agregarUser" class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
+								onclick="agregarUser()">Agregar Usuario</button>
 							<br />
 							<br />
 						</div>
 
 						<!--Para formulario de eliminar-->
 						<div class="container" id="contenedorEliminar">
+						<h1 class="text-uppercase mb-0">ELIMINAR CLIENTE</h1>
 							<br />
 							<br /> <select class="form-control" id="selectClientes">
 								<option th:each="clientes : ${listaTodosClientes}"
@@ -375,11 +382,10 @@
 									th:value="${clientes.id_cliente}"></option>
 							</select> <br />
 							<br />
-							<br /> <a id="eliminarUser"
-								class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
-								href="#" onclick="eliminarCliente()"> <i class="fa fa-close"></i>
-								Eliminar
-							</a> <br />
+							<br /> <button type="button" id="eliminarUser" class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
+								onclick="eliminarUser()">
+								Eliminar</button>
+							<br />
 							<br />
 						</div>
 						<br />
