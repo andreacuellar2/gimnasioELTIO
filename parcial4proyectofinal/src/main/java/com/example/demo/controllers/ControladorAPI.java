@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
+
 import com.example.demo.rests.RestfulServ;
 
 @Controller
@@ -17,7 +19,7 @@ public class ControladorAPI {
 		model.addAttribute("listaTodoslosEmpleados",rest.getAllEmpleados());
 		model.addAttribute("listaTodosPagos",rest.getAllPagos());
 		model.addAttribute("listaTodasSucursales",rest.getAllSucursales());
-		
+		model.addAttribute("listaTodosClientes",rest.getAllClientes());
 		return "index";
 	}
 }

@@ -8,6 +8,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <script type="text/javascript" src="js/gimnasio.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <title>"El Tío"</title>
 
@@ -189,10 +190,14 @@
               <h2 class="text-secondary text-uppercase mb-0">Sucursal</h2>
               <hr class="star-dark mb-5"/>
               <img class="img-fluid mb-5" src="img/portfolio/cabin.png" alt=""/>
-              <p class="mb-5">Visítanos en cualquiera de nuestras sucursales del país</p>
-                  <select class="table-bordered">
-					<option th:each="sucursales : ${listaTodasSucursales}" th:text="${sucursales.nombreSucursal}" th:value="{sucursales.nombre}"></option>
+              <p class="mb-8">Visítanos en cualquiera de nuestras sucursales del país</p>
+                  <select class="table-bordered" id="selectSucursales" onchange="mostrarEmpleados()">
+					<option th:each="sucursales : ${listaTodasSucursales}" th:text="${sucursales.nombreSucursal}" th:value="${sucursales.idsucursal}"></option>
 					</select>
+					<h1 class="text-uppercase mb-0">Empleados de la sucursal</h1>
+					 <ul class="list" id="empleadosLista" >
+					</ul>		
+					
               <p id="demo"></p>
               <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
                 <i class="fa fa-close"></i>
@@ -216,14 +221,13 @@
               <hr class="star-dark mb-5"/>
               <img class="img-fluid mb-5" src="img/portfolio/cake.png" alt=""/>
               <p class="mb-5">Pagos de nuestros clientes</p>
-         <table class="table-bordered">
-		<tbody th:each="pagos : ${listaTodosPagos}">
-			<tr>
-				<td th:text="${pagos.idpago}"></td>
-				<td th:text="${pagos.fecha}"></td>
-			</tr>
-		</tbody>
-	</table>
+               <select class="table-bordered" id="selectPagos" onchange="mostrarPagos()">
+					<option th:each="clientes : ${listaTodosClientes}" th:text="${clientes.nombre_cliente}" th:value="${clientes.id_cliente}"></option>
+				</select>
+			<ul id="listaPagos">
+			</ul>
+			<ul id="listaNombrePagos">
+			</ul>
               <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
                 <i class="fa fa-close"></i>
                 Cerrar</a>
@@ -323,7 +327,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+   
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
