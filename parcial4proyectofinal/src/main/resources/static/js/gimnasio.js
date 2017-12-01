@@ -178,7 +178,7 @@ function eliminarUser() {
 }
 
 
-$("#sendMessageButton").click(function () {
+function login() {
 
     var id = $("#name").val();
     var password = $("#email").val();
@@ -198,13 +198,12 @@ $("#sendMessageButton").click(function () {
                                 var b = new Date();
                                 b.setTime(b.getTime() + ((60 * 1000) * 5));
                                 var c = "; expires=" + b.toGMTString();
-                                document.cookie = "empleado=" + id + c;
+                                document.cookie = "usuario=" + id + c;
 //                            }
-                            location.href = "index.html";
 
                         }
                     }
                 }
-
+                location.reload();
             });
-});
+}
