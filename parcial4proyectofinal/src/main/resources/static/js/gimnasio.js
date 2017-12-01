@@ -153,3 +153,11 @@ function realizarPostPago(idpago, idcliente, idTipoPago, fecha) {
 
 }
 
+
+//Metodos para ocultar divs
+function ocultarDivsPagos(){
+	console.log("No entro");
+	$("#contenedorPagosPorCliente").style.display="none !important";	
+	$("#contenedorAgregarPago").style.display="none !important";	
+}
+
