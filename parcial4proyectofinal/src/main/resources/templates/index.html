@@ -191,7 +191,7 @@
               <img class="img-fluid mb-5" src="img/portfolio/cabin.png" alt=""/>
               <p class="mb-5">Visítanos en cualquiera de nuestras sucursales del país</p>
                   <select class="table-bordered">
-					<option th:each="sucursales : ${listaTodasSucursales}" th:text="${sucursales.nombreSucursal}" th:value="{sucursales.nombre}"></option>
+					<option th:each="sucursales : ${listaTodasSucursales}" th:text="${sucursales.nombreSucursal}" th:value="${sucursales.idsucursal}"></option>
 					</select>
               <p id="demo"></p>
               <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
